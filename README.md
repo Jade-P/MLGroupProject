@@ -14,7 +14,7 @@ The following captures the number of images in each class and in the training an
 <img width="407" alt="Screen Shot 2022-11-20 at 5 40 15 PM" src="https://user-images.githubusercontent.com/60015396/202942961-0e7d0049-cbab-4799-b8f8-f4f1c2c1b909.png">
 
 
-You can find plots, graphs, and other elements of our data exploration in our Jupyter notebook here: TO DO
+You can find plots, graphs, and other elements of our data exploration in our Jupyter notebook here: https://colab.research.google.com/drive/1yU7sL6httnSwWoeMtvxaqGt_K2QgvANT?usp=sharing
 
 ### Bias
 We know it is important, especially when dealing with face image data, to try to make datasets unbiased. As we looked through our image data manually, we noticed that there was diversity of age and race among the faces. We did not quantify what percentage of faces fell into different age and race categories, since we thought that somehow identifying ages and races with code would involve a whole separate machine learning model. From our manual look through, however, there did not seem to be any glaring bias in the data.
