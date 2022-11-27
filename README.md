@@ -33,6 +33,7 @@ Preprocessing steps we plan to complete when we create our model:
 # First Model
 
 ## CNN
+Find the notebook here: https://colab.research.google.com/drive/1cgnw48sBbMcJZXFDOxckUmM-rFTquJir?usp=sharing or in this repo titled "CNN after Preprocessing".
 
 ### Initial Approach and Troubleshooting
 We first built a CNN with hidden layers having relu activation functions, batch normalization in between convolutional layers, and an output layer having only 1 node and a sigmoid activation function. Our choice of output layer was a mistake that led to extremely low accuracy, because our model is meant for multi-class classification, whereas a single output node is meant for binary classification. We learned that we needed to one-hot-encode our y_train and y_test arrays, and that we needed our output layer to have 6 nodes and a softmax activation function, which would give the probability that the input belonged to each of the 6 emotion classes. Using categorical_crossentropy as our loss function allowed the model to match the highest probability from the 6 nodes populated by the softmax activtion function to the appropriate emotion class. After we understood this, we trained our model (which was very similar to a model we found in this article: https://medium.com/themlblog/how-to-do-facial-emotion-recognition-using-a-cnn-b7bbae79cd8f) over 100 epochs and achieved 91.56% training accuracy and 66.03% testing accuracy. 
