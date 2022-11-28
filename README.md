@@ -14,6 +14,7 @@ The following captures the number of images in each class and in the training an
 <img width="407" alt="Screen Shot 2022-11-20 at 5 40 15 PM" src="https://user-images.githubusercontent.com/60015396/202942961-0e7d0049-cbab-4799-b8f8-f4f1c2c1b909.png">
 
 
+
 You can find plots, graphs, and other elements of our data exploration in our Jupyter notebook here: https://colab.research.google.com/drive/1yU7sL6httnSwWoeMtvxaqGt_K2QgvANT?usp=sharing or in the Preprocessing.ipynb file here in GitHub.
 
 ### Bias
@@ -41,10 +42,15 @@ We first built a CNN with hidden layers having relu activation functions, batch 
 ### Customized Model + Overfitting
 To customize the model and make sure we weren't just using the model from the article, we added some more convolutional layers with kernels of 7x7 and 5x5, which we thought would allow the model to take into account more details and complexity. After these changes and training over 100 epochs, our model (called "modelc" in the notebook) achieved 97.20% training accuracy and 65.05% testing accuracy. A plot of the training vs testing accuracy ("val_accuracy" for validation accuracy) is shown below:
 <img width="410" alt="modelc_plot" src="https://user-images.githubusercontent.com/60015396/204122661-963955d0-28e6-48b7-8fe2-b99b6772841c.png">
+![modelc_loss](https://user-images.githubusercontent.com/118235748/204170317-005feb91-6950-4970-95a1-2a92c1f23f63.png)
 
 This plot indicates strong overfitting. The following graphic from https://deepdatascience.wordpress.com/2016/11/17/how-to-detect-model-overfiting-by-training-accuracy/ makes that clear:
 
 ![training-accuray-explaining-if-a-model-is-overfitting](https://user-images.githubusercontent.com/60015396/204122835-59ddb2d8-5ac1-49ae-a4a8-778eaea1faaa.jpeg)
 
 ### Plans to Reduce Overfitting 
-To reduce overfitting when we make our second model or further improve this one, we may use k-fold cross validation and/or reduce the number of layers in the model.
+To reduce overfitting when we make our second model or further improve this one, we may use the following methods:
+* k-fold cross validation 
+* Reduce the number of layers in the model
+* Balance features by image augmentation (Oversampling for classes besides Happy emotion which has the most data)
+* Use Regularization or change dropout rates
