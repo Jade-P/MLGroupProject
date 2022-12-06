@@ -124,6 +124,8 @@ Neutral (3) was most frequently mistaken for Sad (4).
 Sad (4) was most frequently mistaken for Fear (1).
 Surprise (5) was most frequently mistaken for Fear (1).
 
+To view the code that we used to make the confusion matrix, see the bottom of this notebook: 
+
 ### VGG-16
 <img width="692" alt="Screen Shot 2022-12-05 at 5 55 20 PM" src="https://user-images.githubusercontent.com/60015396/205789566-2dd5f5ae-276a-40c9-8e7c-ceb1ac9c0fe3.png">
 
