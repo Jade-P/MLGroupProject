@@ -75,19 +75,18 @@ Moreover, to apply this algorithm we have to normalize and put the entire live f
 
 ## Result
 ### Custom CNN
+We trained our model with a batch size of 64 and a total of 100 epochs. This setting seems suitable to us as we balance both model performance and training time. Finally, we obtain a training accuracy of 0.85 and a training loss of 0.45. An accuracy close to 1 and a loss close to 0 indicates that the model fits data very well. Training accuracy is not used to assess the model performance, since the model could be well fitted to the training data but poorly fitted to new data. Instead, having a training set enables us to make a better decision on whether the model becomes more accurate for unseen data.
+
+Under the same model, we obtain a testing accuracy of 0.66 and a testing loss of 1.21. A testing accuracy of 66% is deemed acceptable (source), but further refinements to our dataset and/or model building parameters could be made, as suggested later in the report (source).
+
 A plot of the training vs testing accuracy ("val_accuracy" for validation accuracy) is shown below:
 <img width="410" alt="modelc_plot" src="https://user-images.githubusercontent.com/60015396/204122661-963955d0-28e6-48b7-8fe2-b99b6772841c.png">
-![modelc_loss](https://user-images.githubusercontent.com/118235748/204170317-005feb91-6950-4970-95a1-2a92c1f23f63.png)
 
 This plot indicates strong overfitting. The following graphic from https://deepdatascience.wordpress.com/2016/11/17/how-to-detect-model-overfiting-by-training-accuracy/ makes that clear:
 
 ![training-accuray-explaining-if-a-model-is-overfitting](https://user-images.githubusercontent.com/60015396/204122835-59ddb2d8-5ac1-49ae-a4a8-778eaea1faaa.jpeg)
 
 <img width="694" alt="Screen Shot 2022-12-05 at 5 49 32 PM" src="https://user-images.githubusercontent.com/60015396/205788761-21b4ea14-52cc-4a7a-b1f8-da3982b72942.png">
-
-We trained our model with a batch size of 64 and a total of 100 epochs. This setting seems suitable to us as we balance both model performance and training time. Finally, we obtain a training accuracy of 0.85 and a training loss of 0.45. An accuracy close to 1 and a loss close to 0 indicates that the model fits data very well. Training accuracy is not used to assess the model performance, since the model could be well fitted to the training data but poorly fitted to new data. Instead, having a training set enables us to make a better decision on whether the model becomes more accurate for unseen data.
-
-Under the same model, we obtain a testing accuracy of 0.66 and a testing loss of 1.21. A testing accuracy of 66% is deemed acceptable (source), but further refinements to our dataset and/or model building parameters could be made, as suggested later in the report (source).
 
 <img width="303" alt="Screen Shot 2022-12-05 at 5 50 00 PM" src="https://user-images.githubusercontent.com/60015396/205788835-cec52023-6426-4120-905c-3f10c3450bbb.png">
 
