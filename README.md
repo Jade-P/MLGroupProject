@@ -77,26 +77,27 @@ Moreover, to apply this algorithm we have to normalize and put the entire live f
 ### Custom CNN
 We trained our model with a batch size of 64 and a total of 100 epochs. This setting seems suitable to us as we balance both model performance and training time. Finally, we obtain a training accuracy of 0.85 and a training loss of 0.45. An accuracy close to 1 and a loss close to 0 indicates that the model fits data very well. Training accuracy is not used to assess the model performance, since the model could be well fitted to the training data but poorly fitted to new data. Instead, having a training set enables us to make a better decision on whether the model becomes more accurate for unseen data.
 
+<img width="694" alt="Screen Shot 2022-12-05 at 5 49 32 PM" src="https://user-images.githubusercontent.com/60015396/205788761-21b4ea14-52cc-4a7a-b1f8-da3982b72942.png">
+
 Under the same model, we obtain a testing accuracy of 0.66 and a testing loss of 1.21. A testing accuracy of 66% is deemed acceptable (source), but further refinements to our dataset and/or model building parameters could be made, as suggested later in the report (source).
 
 A plot of the training vs testing accuracy ("val_accuracy" for validation accuracy) is shown below:
-<img width="410" alt="modelc_plot" src="https://user-images.githubusercontent.com/60015396/204122661-963955d0-28e6-48b7-8fe2-b99b6772841c.png">
+<img width="429" alt="new_acc" src="https://user-images.githubusercontent.com/60015396/205798291-c2bda2f0-3888-48ff-bd6a-e731d495074a.png">
+
 
 This plot indicates strong overfitting. The following graphic from https://deepdatascience.wordpress.com/2016/11/17/how-to-detect-model-overfiting-by-training-accuracy/ makes that clear:
 
 ![training-accuray-explaining-if-a-model-is-overfitting](https://user-images.githubusercontent.com/60015396/204122835-59ddb2d8-5ac1-49ae-a4a8-778eaea1faaa.jpeg)
 
-<img width="694" alt="Screen Shot 2022-12-05 at 5 49 32 PM" src="https://user-images.githubusercontent.com/60015396/205788761-21b4ea14-52cc-4a7a-b1f8-da3982b72942.png">
-
-<img width="303" alt="Screen Shot 2022-12-05 at 5 50 00 PM" src="https://user-images.githubusercontent.com/60015396/205788835-cec52023-6426-4120-905c-3f10c3450bbb.png">
-
 Next, we investigate how training and testing loss change as the number of epochs increases. From the graph, as expected, training loss steadily decreases as the number of epochs increases. However, testing loss quickly decreases at first, levels off and gradually increases afterwards. This suggests that our final model may be overfitted. 
 
+This image is an example of overfitting:
 <img width="374" alt="Screen Shot 2022-12-05 at 5 50 37 PM" src="https://user-images.githubusercontent.com/60015396/205788918-edcd236d-fd70-42ae-bb43-4a320ca7c2dd.png">
 
-The weights and biases of our CNN model are continually adjusted over epochs. When we train the model over too many epochs, the weights and biases of the model may be over-tuned such that the model fits the training data very well. This is why we have a smaller training error as the number of epoch increases. However, this model may not fit the actual real-world data accurately, which is seen when the testing error increases after a suitable number of epochs. The model now seems to have ‘memorized the training set’ after learning from the training set.
+Below was our actual result, which follows the pattern of overfitting as shown above:
+<img width="303" alt="Screen Shot 2022-12-05 at 5 50 00 PM" src="https://user-images.githubusercontent.com/60015396/205788835-cec52023-6426-4120-905c-3f10c3450bbb.png">
 
-A feasible solution to this problem is to decrease the number of epochs used to train the model. If the testing accuracy of the model is still low, further refinements to our dataset and/or model building parameters could be made, as suggested later in the report (source).
+The weights and biases of our CNN model are continually adjusted over epochs. When we train the model over too many epochs, the weights and biases of the model may be over-tuned such that the model fits the training data very well. This is why we have a smaller training error as the number of epoch increases. However, this model may not fit the actual real-world data accurately, which is seen when the testing error increases after a suitable number of epochs. The model now seems to have ‘memorized the training set’ after learning from the training set.
 
 When we tested this CNN using Haar Cascade, we obtained these example results:
 
@@ -104,18 +105,22 @@ When we tested this CNN using Haar Cascade, we obtained these example results:
 
 <img width="501" alt="Screen Shot 2022-12-05 at 6 43 05 PM" src="https://user-images.githubusercontent.com/60015396/205796240-5ac33057-eed4-4b25-ada3-0556ea081a84.png">
 
-
-
 #### Confusion matrix:
 
 <img width="429" alt="Screen Shot 2022-12-05 at 5 51 49 PM" src="https://user-images.githubusercontent.com/60015396/205789066-99e3f0fe-d34c-415e-bc12-a4548b46821b.png">
+Angry = 0
+Fear = 1
+Happy = 2
+Neutral = 3
+Sad = 4
+Surprise = 5
 
 Angry (0) was most frequently mistaken, when mistaken at all, for Sad (4).
 Fear (1) was also most frequently mistaken for Sad (4).
 Happy (2) was most frequently mistaken for Neutral (3).
-Neutral (3) was most frequently mistaken for Sad (4). This makes sense because some of the neutral faces could be interpreted as sad, even by a human.
+Neutral (3) was most frequently mistaken for Sad (4).
 Sad (4) was most frequently mistaken for Fear (1).
-Surprise (5) was most frequently mistaken for Fear (1). This one also makes a lot of sense because surprise and fear are often emotions that occur together in a person, so the facial expressions corresponding to those emotions are understandably similar and related. 
+Surprise (5) was most frequently mistaken for Fear (1).
 
 ### VGG-16
 <img width="692" alt="Screen Shot 2022-12-05 at 5 55 20 PM" src="https://user-images.githubusercontent.com/60015396/205789566-2dd5f5ae-276a-40c9-8e7c-ceb1ac9c0fe3.png">
