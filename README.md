@@ -125,7 +125,7 @@ Surprise (5) was most frequently mistaken for Fear (1).
 ### VGG-16
 <img width="692" alt="Screen Shot 2022-12-05 at 5 55 20 PM" src="https://user-images.githubusercontent.com/60015396/205789566-2dd5f5ae-276a-40c9-8e7c-ceb1ac9c0fe3.png">
 
-We trained our model with a batch size of 64 and a total of 20 epochs. The number of epochs was set to a reasonable checkpoint where the test accuracy stopped making improvements after trial and error. Though the train accuracy seemed to be making progress, we stopped training because the test loss was fluctuating and increasing, indicating overfitting. 
+We trained our model with a batch size of 64 and a total of 20 epochs. We obtained a testing accuracy of 0.598 and testing loss of 1.95. The number of epochs was set to a reasonable checkpoint where the test accuracy stopped making improvements after trial and error. Though the train accuracy seemed to be making progress, we stopped training because the test loss was fluctuating and increasing, indicating overfitting. 
 
 <img width="693" alt="Screen Shot 2022-12-05 at 5 55 53 PM" src="https://user-images.githubusercontent.com/60015396/205789687-eaafca25-0dc9-40d2-ac4c-1f35e03ab29e.png">
 
