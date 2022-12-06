@@ -82,11 +82,10 @@ We trained our model with a batch size of 64 and a total of 100 epochs. This set
 
 <img width="694" alt="Screen Shot 2022-12-05 at 5 49 32 PM" src="https://user-images.githubusercontent.com/60015396/205788761-21b4ea14-52cc-4a7a-b1f8-da3982b72942.png">
 
-Under the same model, we obtain a testing accuracy of 0.66 and a testing loss of 1.21. A testing accuracy of 66% is deemed acceptable (source), but further refinements to our dataset and/or model building parameters could be made, as suggested later in the report (source).
+Under the same model, we obtain a testing accuracy of 0.66 and a testing loss of 1.21. A testing accuracy of 66% is deemed acceptable, but further refinements to our dataset and/or model building parameters could be made, as suggested later in the report.
 
 A plot of the training vs testing accuracy ("val_accuracy" for validation accuracy) is shown below:
 <img width="429" alt="new_acc" src="https://user-images.githubusercontent.com/60015396/205798291-c2bda2f0-3888-48ff-bd6a-e731d495074a.png">
-
 
 This plot indicates strong overfitting. The following graphic from https://deepdatascience.wordpress.com/2016/11/17/how-to-detect-model-overfiting-by-training-accuracy/ makes that clear:
 
@@ -152,8 +151,7 @@ After getting results from the VGG-16 model, we decided to focus on fine tuning 
 ### Convolutional Neural Networks 
 There are many image classification models, but we specifically chose to use a Convolutional Neural Network (CNN). This is because our input data consists of images that are two dimensional, and a convolutional filter would work well to identify the patterns that most likely indicate each emotion that we are trying to identify.	
 
-We first built a CNN with hidden layers having relu activation functions, batch normalization in between convolutional layers, and an output layer having only 1 node and a sigmoid activation function. Our choice of output layer was a mistake that led to extremely low accuracy, because our model is meant for multi-class classification, whereas a single output node is meant for binary classification. We learned that we needed to one-hot-encode our y_train and y_test arrays, and that we needed our output layer to have 6 nodes and a softmax activation function, which would give the probability that the input belonged to each of the 6 emotion classes. Using categorical_crossentropy as our loss function allowed the model to match the highest probability from the 6 nodes populated by the softmax activation function to the appropriate emotion class. After we understood this, we trained our model.
-You can find and run our CNN here: [CNN_final.ipynb](https://github.com/Jade-P/MLGroupProject/blob/main/CNN_final.ipynb)
+We first built a CNN with hidden layers having relu activation functions, batch normalization in between convolutional layers, and an output layer having only 1 node and a sigmoid activation function. Our choice of output layer was a mistake that led to extremely low accuracy, because our model is meant for multi-class classification, whereas a single output node is meant for binary classification. We learned that we needed to one-hot-encode our y_train and y_test arrays, and that we needed our output layer to have 6 nodes and a softmax activation function, which would give the probability that the input belonged to each of the 6 emotion classes. Using categorical_crossentropy as our loss function allowed the model to match the highest probability from the 6 nodes populated by the softmax activation function to the appropriate emotion class.
 
 The main limitation of CNN is that the training time is very large. If you are using CPU instead of GPU to train the model, it could take anywhere from a day to a week. Even with GPU, it takes minutes to train the model. Also, a lot of training data is needed for a CNN to be effective. 
 ### Haar Cascade Detection
@@ -161,12 +159,13 @@ The Haar Cascade classifier detects objects in videos/images quickly and effecti
 
 Images are subsetted into smaller “sub-windows” and are applied to the decision tree, to determine if it has the appropriate features to contain a face, and if not they can be filtered out. This method is so effective that it has been shown that after the first filter (or the first node of the decision tree), the classifier can get rid of half of the image, noting that it does not contain a face. Then the sub-windows are put through more classifiers to final determine the location of a face. Interestingly, the Haar Cascade method does not use pixels directly but instead features that can be encoded, and the motivation for this is because systems that use features are considerably faster then pixel based systems. Overall the Haar Cascade classifier uses a combination of integrals and subsetting to create an effective method of determining the coordinates of a face. 
 
-This particular algorithm has a difficult time in detecting faces that are not in a prime spot, so the algorithm cannot detect faces that are too close to the camera, too far from the camera, or if the face is not looking towards the camera. Moreover, the lighting has a significant role in the difficulty of detecting a face, so the lighting also has to be optimal. Lastly, it does occasionally have a false positive and tell you there is a face where there is not one. 
-
-All of these aspects do contribute to the accuracy of the overall emotion detection because if the face detection is not completely effective then the classification model cannot appropriately applied and may yield inaccurate results.
-
 
 ### Limitations
+
+#### Haar Cascade 
+The Haar Cascade algorithm has a difficult time in detecting faces that are not in a prime spot, so the algorithm cannot detect faces that are too close to the camera, too far from the camera, or if the face is not looking towards the camera. Moreover, the lighting has a significant role in the difficulty of detecting a face, so the lighting also has to be optimal. Lastly, it does occasionally have a false positive and tell you there is a face where there is not one. 
+
+All of these aspects do contribute to the accuracy of the overall emotion detection because if the face detection is not completely effective then the classification model cannot appropriately applied and may yield inaccurate results.
 
 #### Fundamental issue within the topic
 As could be seen in the plotted dataset, there was some data that could be even confusing for humans, especially considering the Neutral, Sad and Surprise. In other words, determining human emotion from a face is actually somewhat subjective. For example, a smiling face does not always indicate Happy emotion and crying face does not always indicates Sad emotion. Therefore, there is a fundamental limitation in the topic of classifying human emotions by just calculating visual data.
@@ -175,7 +174,7 @@ As could be seen in the plotted dataset, there was some data that could be even 
 During data exploration, we also found out that there are some faulty inputs which were not a face or have multiple faces in the test dataset. Since we have cleaned the training dataset and excluded faulty inputs, outliers in the test dataset may have degraded the overall performance. 
 
 #### Face variation
-Within the dataset, some face images varied in face angles and could have impacted the model’s performance because the algorithm could have created an algorithm for the template of face to determine the emotion. As an imbalanced dataset resulted in a high score in a particular class, less images of faces with different angles might have been trained less, resulting in poor results on faces in different angles.
+Within the dataset, some face images varied in face angles and could have impacted the model’s performance because the algorithm could have created a template of face to determine the emotion. As an imbalanced dataset resulted in a high score in a particular class, less images of faces with different angles might have been trained less, resulting in poor results on faces in different angles.
 
 After evaluating each model, the best method to use in the live feed was the CNN model.
 
@@ -214,19 +213,26 @@ Contribution: Contributed to the pre-processing of data, by finding all the non-
 Citations
 apollo2506. (2020, June 30). Facial recognition. Kaggle. Retrieved December 5, 2022, from https://www.kaggle.com/code/apollo2506/facial-recognition
 Avinash. (2018, December 16). How to save our model to google drive and reuse it. Medium. Retrieved December 5, 2022, from https://medium.com/@ml_kid/how-to-save-our-model-to-google-drive-and-reuse-it-2c1028058cb2
+
+
 basel99. (2021, August 6). Facial recognition. Kaggle. Retrieved December 5, 2022, from https://www.kaggle.com/code/basel99/facial-recognition
 Convolutional Neural Network (CNN)  :   Tensorflow Core. TensorFlow. (n.d.). Retrieved December 5, 2022, from https://www.tensorflow.org/tutorials/images/cnn
+
+
 Convolutional Neural Network. Engati. (n.d.). Retrieved December 5, 2022, from https://www.engati.com/glossary/convolutional-neural-network#toc-what-are-the-disadvantages-of-convolutional-neural-networks-
+
+
 Sharma, N. (2018, December 25). How to do facial emotion recognition using a CNN? Medium. Retrieved December 5, 2022, from https://medium.com/themlblog/how-to-do-facial-emotion-recognition-using-a-cnn-b7bbae79cd8f
+
+
 TISTORY. (2020, May 7). Python을 이용하여 중복 사진 정리하기 :: Opencv, compare_ssim. Mizys. Retrieved December 5, 2022, from https://mizykk.tistory.com/55
 vpisarev, haarcascade_frontalface_default.xml, (2013), GitHub repository, https://github.com/opencv/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml 
+
+
 Viola, P., &amp; Jones, M. (n.d.). Rapid object detection using a boosted cascade of Simple features. Proceedings of the 2001 IEEE Computer Society Conference on Computer Vision and Pattern Recognition. CVPR 2001. https://doi.org/10.1109/cvpr.2001.990517
+
+
 Versloot, C. (2022, February 15). how-to-use-k-fold-cross-validation-with-keras. GitHub. Retrieved December 5, 2022, from https://github.com/christianversloot/machine-learning-articles/blob/main/how-to-use-k-fold-cross-validation-with-keras.md 
+
+
   Yurtsever, O., Ozan YurtseverOzan Yurtsever 1, VanBantamVanBantam 71955 silver badges2323 bronze badges, Krunal VKrunal V 1, samvoit4samvoit4 6566 bronze badges, PeterPeter 1, aps014aps014 1, Illuminati0x5BIlluminati0x5B 60477 silver badges2323 bronze badges, user5648046user5648046, & Luca VavassoriLuca Vavassori 3111 silver badge66 bronze badges. (1966, June 1). Keras: CNN model is not learning. Stack Overflow. Retrieved December 5, 2022, from https://stackoverflow.com/questions/55776436/keras-cnn-model-is-not-learning 
-
-
-
-
-
-
-
