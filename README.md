@@ -175,7 +175,7 @@ Aurora Travers
 Title: CNN Engineer / Editor
 Contribution: Contributed to the pre-processing of data, by finding all non-faces in the “Surprised” dataset in the training and testing environments. Researched about how to build an effective CNN model and provided a skeleton to our CNN model for Jade to work on. Provided an overview in the introduction and methods (CNN part) section, and finished up our write up by writing the conclusion section.
 
-Brian 
+Choon Yong Chan 
 Title: Jetson Nano Engineer / Data Analyst / Editor
 Contribution: As Data Analyst: Preprocess the data for the 'Sad' emotion by filtering out invalid images from the data set. As Editor: Took lead in sprucing up the Python Notebook with brief descriptions, to improve readability for our audience. Led the 'Results' section of the write up. As Jetson Nano Engineer: Took lead in procuring, setting up, troubleshooting and running the model on the Jetson Nano. Experimented with the Camera module of the Jetson Nano, which was subsequently deprioritized.
 
