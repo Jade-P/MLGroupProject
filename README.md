@@ -99,6 +99,14 @@ The weights and biases of our CNN model are continually adjusted over epochs. Wh
 
 A feasible solution to this problem is to decrease the number of epochs used to train the model. If the testing accuracy of the model is still low, further refinements to our dataset and/or model building parameters could be made, as suggested later in the report (source).
 
+When we tested this CNN using Haar Cascade, we obtained these example results:
+
+<img width="503" alt="Screen Shot 2022-12-05 at 6 41 58 PM" src="https://user-images.githubusercontent.com/60015396/205796178-2c1dffb2-dacf-4f68-ba12-24dc99af464c.png">
+
+<img width="501" alt="Screen Shot 2022-12-05 at 6 43 05 PM" src="https://user-images.githubusercontent.com/60015396/205796240-5ac33057-eed4-4b25-ada3-0556ea081a84.png">
+
+
+
 #### Confusion matrix:
 
 <img width="429" alt="Screen Shot 2022-12-05 at 5 51 49 PM" src="https://user-images.githubusercontent.com/60015396/205789066-99e3f0fe-d34c-415e-bc12-a4548b46821b.png">
