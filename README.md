@@ -1,7 +1,7 @@
 # Emotion Detection with Webcam
 
 ## Abstract
-This project involves training a neural network to distinguish between the emotions (anger, sadness, neutral, happiness, fear, surprise) communicated by facial expressions. We will then run the neural network on a live webcam, at which point it will be able to take in real-world data (people’s faces) and decide which emotion the face is most likely expressing out of the 7 options. 
+This project involves training a neural network to distinguish between the emotions (anger, sadness, neutral, happiness, fear, surprise) communicated by facial expressions. We will then run the neural network on a live webcam, at which point it will be able to take in real-world data (people’s faces) and decide which emotion the face is most likely expressing out of the 6 options. 
  
 Dataset we will be using:
 https://www.kaggle.com/datasets/apollo2506/facial-recognition-dataset?fbclid=IwAR3Q5t6xAClg5DRKHm5kGDV81vOwu0FOJeGGoHnjjmhAL2hbiZ6qBqferRM
