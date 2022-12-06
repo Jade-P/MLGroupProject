@@ -157,14 +157,14 @@ You can find and run our CNN here: [CNN_final.ipynb](https://github.com/Jade-P/M
 
 The main limitation of CNN is that the training time is very large. If you are using CPU instead of GPU to train the model, it could take anywhere from a day to a week. Even with GPU, it takes minutes to train the model. Also, a lot of training data is needed for a CNN to be effective. 
 ### Haar Cascade Detection
-When applying the machine learning algorithm to a live feed, a detection algorithm must be implemented to find the face and then classify it. This part of the methodology is primarily to create a square that can be put on a live feed, so that a machine learning algorithm can be applied. 
-
-The Haar Cascade classifier is an algorithm that was introduced to solve this specific problem by Paul Viola and Micheal Jones. The algorithm detects objects in videos/images quickly and effectively. Underneath the classification is a degenerate decision tree , also known as a “cascade,” that decides whether the object is a face. The term “Haar” comes from the Haar Basis function and contributes to the fast computational time. 
+The Haar Cascade classifier detects objects in videos/images quickly and effectively. Underneath the classification is a degenerate decision tree , also known as a “cascade,” that decides whether the object is a face. The term “Haar” comes from the Haar Basis function and contributes to the fast computational time. 
 
 Images are subsetted into smaller “sub-windows” and are applied to the decision tree, to determine if it has the appropriate features to contain a face, and if not they can be filtered out. This method is so effective that it has been shown that after the first filter (or the first node of the decision tree), the classifier can get rid of half of the image, noting that it does not contain a face. Then the sub-windows are put through more classifiers to final determine the location of a face. Interestingly, the Haar Cascade method does not use pixels directly but instead features that can be encoded, and the motivation for this is because systems that use features are considerably faster then pixel based systems. Overall the Haar Cascade classifier uses a combination of integrals and subsetting to create an effective method of determining the coordinates of a face. 
 
 This particular algorithm has a difficult time in detecting faces that are not in a prime spot, so the algorithm cannot detect faces that are too close to the camera, too far from the camera, or if the face is not looking towards the camera. Moreover, the lighting has a significant role in the difficulty of detecting a face, so the lighting also has to be optimal. Lastly, it does occasionally have a false positive and tell you there is a face where there is not one. 
+
 All of these aspects do contribute to the accuracy of the overall emotion detection because if the face detection is not completely effective then the classification model cannot appropriately applied and may yield inaccurate results.
+
 
 ### Limitations
 
