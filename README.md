@@ -72,7 +72,7 @@ This plot indicates strong overfitting. The following graphic from https://deepd
 
 ### Second Model: VGG-16 
 
-https://drive.google.com/file/d/15sHKP8PAo5BVqeJwnU7_7EIsSR1quKhc/view?usp=sharing 
+You can find and run our VGG-16 model here: https://github.com/Jade-P/MLGroupProject/blob/main/VGG16.ipynb
 
 VGG-16 is a model using CNN layers which used to win Imagenet competition in the past. Using the module implemented in keras library, we imported the model and used it as base model and added several layers so that we can use it for our classification which has 6 classes in particular. The model consists of 16 layers with weights including convolution layer, max pooling layer and fully connected layer with softmax in the last. We connected this with a flattening layer and softmax with 6 units which are the number of the classes, referring to implementation of kaggle example code.
 
