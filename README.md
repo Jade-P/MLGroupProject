@@ -62,14 +62,6 @@ For emotions that had fewer training images, we oversampled some data by flippin
 We built a CNN with hidden layers having relu activation functions, batch normalization in between convolutional layers, and an output layer having  6 nodes and a softmax activation function, which would give the probability that the input belonged to each of the 6 emotion classes. Using categorical_crossentropy as our loss function allowed the model to match the highest probability from the 6 nodes populated by the softmax activation function to the appropriate emotion class.
 You can find and run our CNN here: [CNN_final.ipynb](https://github.com/Jade-P/MLGroupProject/blob/main/CNN_final.ipynb)
 
-A plot of the training vs testing accuracy ("val_accuracy" for validation accuracy) is shown below:
-<img width="410" alt="modelc_plot" src="https://user-images.githubusercontent.com/60015396/204122661-963955d0-28e6-48b7-8fe2-b99b6772841c.png">
-![modelc_loss](https://user-images.githubusercontent.com/118235748/204170317-005feb91-6950-4970-95a1-2a92c1f23f63.png)
-
-This plot indicates strong overfitting. The following graphic from https://deepdatascience.wordpress.com/2016/11/17/how-to-detect-model-overfiting-by-training-accuracy/ makes that clear:
-
-![training-accuray-explaining-if-a-model-is-overfitting](https://user-images.githubusercontent.com/60015396/204122835-59ddb2d8-5ac1-49ae-a4a8-778eaea1faaa.jpeg)
-
 ### Second Model: VGG-16 
 
 You can find and run our VGG-16 model here: https://github.com/Jade-P/MLGroupProject/blob/main/VGG16.ipynb
@@ -83,6 +75,14 @@ Moreover, to apply this algorithm we have to normalize and put the entire live f
 
 ## Result
 ### Custom CNN
+A plot of the training vs testing accuracy ("val_accuracy" for validation accuracy) is shown below:
+<img width="410" alt="modelc_plot" src="https://user-images.githubusercontent.com/60015396/204122661-963955d0-28e6-48b7-8fe2-b99b6772841c.png">
+![modelc_loss](https://user-images.githubusercontent.com/118235748/204170317-005feb91-6950-4970-95a1-2a92c1f23f63.png)
+
+This plot indicates strong overfitting. The following graphic from https://deepdatascience.wordpress.com/2016/11/17/how-to-detect-model-overfiting-by-training-accuracy/ makes that clear:
+
+![training-accuray-explaining-if-a-model-is-overfitting](https://user-images.githubusercontent.com/60015396/204122835-59ddb2d8-5ac1-49ae-a4a8-778eaea1faaa.jpeg)
+
 <img width="694" alt="Screen Shot 2022-12-05 at 5 49 32 PM" src="https://user-images.githubusercontent.com/60015396/205788761-21b4ea14-52cc-4a7a-b1f8-da3982b72942.png">
 
 We trained our model with a batch size of 64 and a total of 100 epochs. This setting seems suitable to us as we balance both model performance and training time. Finally, we obtain a training accuracy of 0.85 and a training loss of 0.45. An accuracy close to 1 and a loss close to 0 indicates that the model fits data very well. Training accuracy is not used to assess the model performance, since the model could be well fitted to the training data but poorly fitted to new data. Instead, having a training set enables us to make a better decision on whether the model becomes more accurate for unseen data.
