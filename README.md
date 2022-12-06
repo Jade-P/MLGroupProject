@@ -48,15 +48,15 @@ We know it is important, especially when dealing with face image data, to try to
 
 #### Remove Duplicates
 
-For each emotion data, we extracted the memory size of images and compared images which have the same memory size with structural similarity using skimage library. Then using the dictionary as data structure, we grouped the same images, saving the first image in the group as the key of the dictionary and the same images as values of the key. Finally, through iterations of each key, we removed the duplicates using the values of the key which makes only the key image remain. 
+For each emotion category in the dataset, we extracted the memory size of each image and compared images which have the same memory size with structural similarity using skimage library. Then using the dictionary data structure, we grouped the same images, saving the first image in the group as the key of the dictionary and the same images as values of the key. Finally, by iterating through each key, we removed the duplicates using the values of the key which makes only the key image remain. 
 
 #### Remove outliers
 
-Train data image that does not look like a face, or includes more than one face was removed. This process was done manually. Through iterating the elements of the outliers list, we removed them from the training dataset.
+Training images that did not contain faces, or included more than one face were removed. This process was done manually. We then added these outliers to a list. By iterating over the elements of the outliers list, we removed them from the training dataset.
 
 #### Image augmentation
 
-For the dataset that lacks image compared to the class that has most images, we oversampled some data by flipping it horizontally, randomly changing the brightness, contrast, randomly rotating up to 15 degrees, cropping and resizing the image. The amount of oversampling was about 80% of the difference between the amount of data and the number of the largest dataset.
+For emotions that had fewer training images, we oversampled some data by flipping it horizontally, randomly changing the brightness and contrast, randomly rotating up to 15 degrees, cropping and resizing the image. The amount of oversampling was about 80% of the difference between the amount of data and the number of the largest dataset.
 
 ### 1st Model: Convolutional Neural Networks 
 There are many image classification models, but we specifically chose to use a Convolutional Neural Network (CNN). This is because our input data consists of images that are two dimensional, and a convolutional filter would work well to identify the patterns that most likely indicate each emotion that we are trying to identify.	
