@@ -13,7 +13,8 @@ In the beginning of this project, our group wanted to work not only with an inte
 ## Method
 ### Data exploration
 
-https://colab.research.google.com/drive/1Aq2uXzQSteBLBaTvhKM411fgV3PmvDPd?usp=share_link 
+You can run the data exploration portion of our project here:
+[https://colab.research.google.com/drive/1Aq2uXzQSteBLBaTvhKM411fgV3PmvDPd?usp=share_link ](https://github.com/Jade-P/MLGroupProject/blob/main/Data_exploration_final.ipynb)
 
 When exploring the data, we found that the data has the following attributes:
 - each image is already 48x48 pixels
